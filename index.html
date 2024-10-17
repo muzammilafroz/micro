@@ -11,7 +11,7 @@
     .modal {
       display: none; /* Hidden by default */
       position: fixed; /* Stay in place */
-      z-index: 1; /* Sit on top */
+      z-index: 2; /* Sit on top of everything */
       left: 0;
       top: 0;
       width: 100%; /* Full width */
@@ -26,6 +26,7 @@
       border: 1px solid #888;
       width: 50%; /* Modal size */
       text-align: center;
+      z-index: 3;
     }
 
     .modal-content h2 {
@@ -43,13 +44,21 @@
       cursor: pointer;
     }
 
+    /* Blur effect for background */
+    .blur {
+      filter: blur(8px);
+      transition: filter 0.5s ease;
+    }
+
+    /* Initially hide the main content */
     .stackedit__left {
-      display: none; /* Hide main content initially */
+      display: none;
     }
   </style>
 </head>
 
 <body class="stackedit">
+  <!-- The Modal (Disclaimer) -->
   <div id="disclaimerModal" class="modal">
     <div class="modal-content">
       <h2>Disclaimer & Terms of Use</h2>
@@ -1514,12 +1523,14 @@ Y(P, w) = f(x(P, w)) = \frac{w}{a\cdot p}^\frac{a}{a-1}
     // Show the modal on page load
     window.onload = function () {
       document.getElementById("disclaimerModal").style.display = "block";
+      document.getElementById("mainContent").classList.add('blur'); // Blur the background
     };
 
     // Function to handle acceptance of terms
     function acceptTerms() {
       document.getElementById("disclaimerModal").style.display = "none";
-      document.getElementById("mainContent").style.display = "block";
+      document.getElementById("mainContent").classList.remove('blur'); // Remove the blur
+      document.getElementById("mainContent").style.display = "block"; // Show main content
     }
 
     // Function to handle rejection of terms (can redirect or close the page)
