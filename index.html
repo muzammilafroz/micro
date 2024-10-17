@@ -6,9 +6,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Microeconomics short notes by Ritika Jain</title>
   <link rel="stylesheet" href="https://stackedit.io/style.css" />
+  <style>
+    /* Modal Styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 50%; /* Modal size */
+      text-align: center;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 15px;
+    }
+
+    .modal-content p {
+      text-align: justify;
+      margin-bottom: 20px;
+    }
+
+    .modal-content button {
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .stackedit__left {
+      display: none; /* Hide main content initially */
+    }
+  </style>
 </head>
 
 <body class="stackedit">
+  <div id="disclaimerModal" class="modal">
+    <div class="modal-content">
+      <h2>Disclaimer & Terms of Use</h2>
+      <p>
+        By accessing this page, you agree to the terms and conditions outlined herein. This page provides educational notes on Microeconomics by Ritika Jain. The information provided is for academic purposes only and should not be construed as financial or professional advice.
+      </p>
+      <p>
+        Please read and accept the terms to continue to the content.
+      </p>
+      <button onclick="acceptTerms()">I Agree</button>
+      <button onclick="rejectTerms()">I Do Not Agree</button>
+    </div>
+  </div>
   <div class="stackedit__left">
     <div class="stackedit__toc">
       
@@ -1456,6 +1510,24 @@ Y(P, w) = f(x(P, w)) = \frac{w}{a\cdot p}^\frac{a}{a-1}
 
     </div>
   </div>
+    <script>
+    // Show the modal on page load
+    window.onload = function () {
+      document.getElementById("disclaimerModal").style.display = "block";
+    };
+
+    // Function to handle acceptance of terms
+    function acceptTerms() {
+      document.getElementById("disclaimerModal").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
+    }
+
+    // Function to handle rejection of terms (can redirect or close the page)
+    function rejectTerms() {
+      alert("You must accept the terms to view the content.");
+      window.location.href = "https://www.example.com"; // Redirect to a different page
+    }
+  </script>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 </body>
 
 </html>
